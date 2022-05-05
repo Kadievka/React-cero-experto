@@ -1,9 +1,10 @@
 import  { ReactElement, useState } from "react";
 import { AddCategory } from "./components/AddCategory";
+import GifGrid from "./components/GifGrid";
 
 const GifExpertApp = (): ReactElement => {
 
-  const [categories, setCategories] = useState(["One Punch", "Samurai X", "Dragon Ball"]);
+  const [categories, setCategories] = useState(["Samurai X"]);
 
   return (
     <>
@@ -14,7 +15,10 @@ const GifExpertApp = (): ReactElement => {
       <ol>
         {
           categories.map((category, index) => (
-            <li key={`${category}-${index}`}>{category}</li>
+            <GifGrid
+              key={`${category}-${index}`}
+              category={category} 
+            />
           ))
         }
       </ol>

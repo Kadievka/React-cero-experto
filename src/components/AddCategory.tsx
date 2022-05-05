@@ -6,7 +6,7 @@ export interface AddCategoryPropsInterface {
 
 export const AddCategory = ({setCategories}: AddCategoryPropsInterface) => {
 
-  const [inputValue, setInputValue] = useState('Hola mundo');
+  const [inputValue, setInputValue] = useState("");
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
