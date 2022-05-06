@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { ImageInterface } from '../interfaces/ImageInterface';
+import GifGridItem from './GifGridItem';
 
 export interface GifGridPropsInterface {
   category: string
@@ -16,7 +18,13 @@ export interface GiphyImageInterface {
 
 const GifGrid = ({category}: GifGridPropsInterface) => {
 
-  const getGif = async ()=>{
+  const [images, setImages] = useState<ImageInterface[]>([]);
+
+  useEffect(() => {
+    getGifs();
+  }, []);
+
+  const getGifs = async ()=>{
 
     const url: string = `https://api.giphy.com/v1/gifs/search?q=${category}&limit=10&api_key=2GQiNnBujwcxQpIFg3ov4AdnYTe3Watm`
 
@@ -32,14 +40,17 @@ const GifGrid = ({category}: GifGridPropsInterface) => {
       }
     });
 
-    console.log(gifs);
+    setImages(gifs);
   }
-
-  getGif();
 
   return (
     <div>
-      {category}
+      <h3>{category}</h3>
+        {
+          images.map((image) => (
+            <GifGridItem key={image.id} {...image}/>
+          ))
+        }
     </div>
   )
 }
