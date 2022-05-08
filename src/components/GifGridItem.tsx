@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { ImageInterface } from '../interfaces/ImageInterface'
 
 const GifGridItem = ({title, url}: ImageInterface) => {
@@ -10,4 +10,4 @@ const GifGridItem = ({title, url}: ImageInterface) => {
   )
 }
 
-export default GifGridItem
+export default GifGridItem;
