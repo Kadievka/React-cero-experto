@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 export interface AddCategoryPropsInterface {
   setCategories: React.Dispatch<React.SetStateAction<string[]>>
 }
 
-export const AddCategory = ({setCategories}: AddCategoryPropsInterface) => {
+const AddCategory = ({setCategories}: AddCategoryPropsInterface) => {
 
   const [inputValue, setInputValue] = useState("");
 
@@ -28,13 +29,21 @@ export const AddCategory = ({setCategories}: AddCategoryPropsInterface) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form data-testid="form-element" onSubmit={handleSubmit}>
       <input
+        data-testid="input-element"
         type="text"
         value={ inputValue }
         onChange = { e => handleInputChange(e) }
       />
-      <button>Agregar</button>
+      <button data-testid="button-element">Agregar</button>
     </form>
   )
 }
+
+AddCategory.propTypes = {
+  setCategories: PropTypes.func.isRequired,
+}
+
+export default AddCategory;
+
