@@ -13,10 +13,10 @@ describe('GifGridItem', ()=>{
       url: 'mock-url',
     }
 
-    const wrapper =render(<GifGridItem {...input}  />);
-    
+    const wrapper = render(<GifGridItem {...input}  />);
+
     expect(wrapper.asFragment()).toMatchSnapshot();
-  
+
   });
 
 });

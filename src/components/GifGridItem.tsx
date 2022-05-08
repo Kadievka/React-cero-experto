@@ -1,5 +1,6 @@
 import React from 'react';
-import { ImageInterface } from '../interfaces/ImageInterface'
+import { ImageInterface } from '../interfaces/ImageInterface';
+import PropTypes from 'prop-types';
 
 const GifGridItem = ({title, url}: ImageInterface) => {
   return (
@@ -8,6 +9,11 @@ const GifGridItem = ({title, url}: ImageInterface) => {
       <p>{title}</p>
     </div>
   )
+}
+
+GifGridItem.propTypes = {
+  title: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
 }
 
 export default GifGridItem;
