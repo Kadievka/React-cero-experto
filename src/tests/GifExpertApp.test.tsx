@@ -26,8 +26,6 @@ describe('GifExpertApp', () => {
     expect(h1Element.innerHTML.trim()).toBe("GifExpertApp");
     expect(h3Element.innerHTML.trim()).toBe("Dragon Ball");
 
-    console.log(screen.debug())
-
   });
 
 });
