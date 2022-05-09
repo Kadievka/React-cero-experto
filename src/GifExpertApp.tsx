@@ -1,14 +1,19 @@
 import  { ReactElement, useState } from "react";
 import AddCategory from "./components/AddCategory";
 import GifGrid from "./components/GifGrid";
+import PropTypes from 'prop-types';
 
-const GifExpertApp = (): ReactElement => {
+export interface GifExpertAppInputInterface {
+  categoriesInput?: string[]
+}
 
-  const [categories, setCategories] = useState(["One Punch"]);
+const GifExpertApp = ({categoriesInput = ["One Punch"]}: GifExpertAppInputInterface): ReactElement => {
+
+  const [categories, setCategories] = useState(categoriesInput);
 
   return (
     <>
-      <h1>GifExpertApp</h1>
+      <h1 data-testid="h1-element">GifExpertApp</h1>
         <AddCategory setCategories={setCategories} />
       <hr />
 
@@ -17,7 +22,7 @@ const GifExpertApp = (): ReactElement => {
           categories.map((category, index) => (
             <GifGrid
               key={`${category}-${index}`}
-              category={category} 
+              category={category}
             />
           ))
         }
@@ -26,6 +31,10 @@ const GifExpertApp = (): ReactElement => {
     </>
   );
 
+}
+
+GifExpertApp.propTypes = {
+  categoriesInput: PropTypes.string
 }
 
 export default GifExpertApp;
