@@ -1,6 +1,7 @@
 import GifGridItem from './GifGridItem';
 import { useFetchGifs } from '../hooks/useFetchGifs';
 import { FetchGifsStateInterface } from '../interfaces/FetchGifsStateInterface';
+import PropTypes from 'prop-types';
 
 export interface GifGridPropsInterface {
   category: string
@@ -21,11 +22,11 @@ const GifGrid = ({category}: GifGridPropsInterface) => {
 
   return (
     <>
-      <h3 className="animate__animated animate__fadeIn"> { category } </h3>
+      <h3 data-testid="h3-element" className="animate__animated animate__fadeIn"> { category } </h3>
 
-      { loading && <p className="animate__animated animate__flash" >Loading...</p> }
+      { loading && <p data-testid="p-element" className="animate__animated animate__flash" >Loading...</p> }
 
-      <div className="card-grid">
+      <div data-testid="div-element" className="card-grid">
           {
             images.map((image) => (
               <GifGridItem key={image.id} {...image}/>
@@ -34,6 +35,10 @@ const GifGrid = ({category}: GifGridPropsInterface) => {
       </div>
     </>
   )
+}
+
+GifGrid.propTypes = {
+  category: PropTypes.string.isRequired,
 }
 
 export default GifGrid

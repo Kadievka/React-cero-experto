@@ -18,7 +18,7 @@ describe('AddCategory', () => {
 
     const setCategories = ()=>({});
 
-    const wrapper = render(<AddCategory setCategories={setCategories}  />);
+    const wrapper = render(<AddCategory setCategories={setCategories} />);
 
     const inputElement = screen.getByTestId('input-element');
     const buttonElement = screen.getByTestId('button-element');
@@ -35,7 +35,7 @@ describe('AddCategory', () => {
 
     const setCategories = ()=>({});
 
-    render(<AddCategory setCategories={setCategories}  />);
+    render(<AddCategory setCategories={setCategories} />);
 
     const inputElement = screen.getByTestId('input-element');
 
@@ -49,7 +49,7 @@ describe('AddCategory', () => {
 
     const setCategories = jest.fn();
 
-    render(<AddCategory setCategories={setCategories}  />);
+    render(<AddCategory setCategories={setCategories} />);
 
     const inputElement = screen.getByTestId('input-element');
     fireEvent.change(inputElement, {target: {value: 'mock-input-value'}});

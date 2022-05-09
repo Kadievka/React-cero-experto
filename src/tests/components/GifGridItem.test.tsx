@@ -6,7 +6,7 @@ import { ImageInterface } from "../../interfaces/ImageInterface";
 
 describe('GifGridItem', ()=>{
 
-  it('should show the component successfuly', () => {
+  it('should show the component successfully', () => {
     const input: ImageInterface = {
       id: 'mock-id',
       title: 'mock-title',
